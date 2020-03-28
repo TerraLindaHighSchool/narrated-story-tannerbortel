@@ -11,7 +11,7 @@ public class Star extends Actor
     private int x, y, speed, size;
     private Color color;
     
-    public Star(int speed, Color color, int worldWidth, int worldHeight)
+   public Star(int speed, Color color, int worldWidth, int worldHeight)
     {
       size = 1 + Greenfoot.getRandomNumber(4);
       GreenfootImage image = new GreenfootImage (size, size);
@@ -23,8 +23,16 @@ public class Star extends Actor
       x = Greenfoot.getRandomNumber(worldWidth);
       y = Greenfoot.getRandomNumber(worldHeight);
     
-   }
-
+    }
+   public int getX()
+    {
+       return x;
+    }
+   
+   public int getY()
+    {
+       return y;
+    }
    public void move()
    {
        x = speed + x;
