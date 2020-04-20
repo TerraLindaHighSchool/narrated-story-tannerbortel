@@ -15,10 +15,19 @@ public class Button extends Actor
     private static final Color transparent = new Color(0,0,0,0);
     private GreenfootImage background;
     private String prefix;
+    private GreenfootSound narration = new GreenfootSound ("narration.mp3");
     
+    public void act()
+    {
+      if(Greenfoot.mouseClicked(this) && !narration.isPlaying())
+      {
+           narration.play();
+      }
+    }
     public Button()
     {
-        this("Click to Begin Story");
+     this("Click to Begin Story");
+     
     }
 
     /**
@@ -29,6 +38,11 @@ public class Button extends Actor
         background = getImage();  // get image from class
         this.prefix = prefix;
         updateImage();
+     
+      if(Greenfoot.mouseClicked(this))
+      {
+          System.out.println("Clicked");
+      }
     }
 
     /**
@@ -48,4 +62,5 @@ public class Button extends Actor
                         (image.getHeight()-text.getHeight())/2);
         setImage(image);
     }
+    
 }
